@@ -136,7 +136,7 @@ int main(void) {
 		
 		if(US_Time_L < 22 || US_Time_R < 22) Stop();  //|| US_Time_R < 22
 		else{
-			if((Line_all_digit & 0b11000011) == 0b11000011){ //detect if lines only on inner sensors
+			if((Line_all_digit & 0b11000011) == 0b11000011 && linecounter != 0){ //detect if lines only on inner sensors
 				if(Line_L1 > Line_R1){
 					 if((Line_L1 - Line_R1) > 24) Forward((191+(64*(Line_R1/Line_L1))),255);
 					 else Forward(255,255);
